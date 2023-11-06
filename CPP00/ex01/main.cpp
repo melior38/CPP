@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 20:13:17 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/06 20:16:27 by marvin           ###   ########.fr       */
+/*   Created: 2023/11/06 19:45:09 by marvin            #+#    #+#             */
+/*   Updated: 2023/11/06 20:18:56 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
-
 #include <iostream>
+#include "main.hpp"
 
-class PhoneBook {
 
-public:
-
-	PhoneBook(void);
-	~PhoneBook(void);
-private:
-	Contact _tab[8];
-};
-
-#endif
+int	main(int ac, char **av)
+{
+	(void) ac;
+	(void) av;
+	PhoneBook repertory;
+	return 0;
+}
