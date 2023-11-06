@@ -6,10 +6,9 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 16:47:50 by asouchet          #+#    #+#              #
-#    Updated: 2023/11/06 20:14:35 by marvin           ###   ########.fr        #
+#    Updated: 2023/11/06 21:46:06 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 COLOUR_GREEN=\033[0;32m
 COLOUR_RED=\033[0;31m
@@ -26,16 +25,20 @@ SRC				=	main.cpp						\
 						PhoneBook.cpp				\
 						Contact.cpp
 
+DIRS			= objs
 HEADERS			= include
 OBJS			= ${SRC:.cpp=.o}
 CFLAGS 			= -I $(HEADERS) -Werror -Wextra -Wall -std=c++98
+_OBJS			= $(addprefix $(DIRS)/, $(OBJS))
+
 
 all: ${NAME}
 
-${NAME}: ${OBJS}
+${NAME}: ${_OBJS}
 			@echo "$(COLOUR_CYAN)Compile..."
-			g++ ${CFLAGS} $(OBJS) -o $@
-%.o: %.cpp
+			g++ ${CFLAGS} $(_OBJS) -o $@
+${DIRS}/%.o: %.cpp
+		@mkdir -p $(DIRS)
 		g++ $(CFLAGS) -c $< -o $@ -g3
 clean:
 			$(RM) ${OBJS}

@@ -6,12 +6,12 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 19:45:09 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/06 20:18:56 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/06 21:42:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "main.hpp"
+#include "include/main.hpp"
 
 
 int	main(int ac, char **av)

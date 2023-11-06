@@ -11,18 +11,33 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include "main.hpp"
+#include "include/main.hpp"
 
-PhoneBook::PhoneBook(Contact *tab)
+PhoneBook::PhoneBook(void)
+{
+	std::cout << "constructor ~PhoneBook called" << std::endl;
+	return ;
+}
+
+PhoneBook&	PhoneBook::operator=(const PhoneBook& other)
+{
+	for(int i = 0; i < 8; i++)
+	{
+		this->_users[i] = other._users[i];
+	}
+	return *this;
+}
+
+PhoneBook::PhoneBook(PhoneBook &other)
 {
 	std::cout << "constructor PhoneBook called" << std::endl;
-	for (int i = 0, tab[i], i++)
-		this->_tab[i] = tab[i]
+	for (int i = 0; i < 8; i++)
+		this->_users[i] = other._users[i];	
 	return ;
 }
 
 
-PhoneBook::PhoneBook(void)
+PhoneBook::~PhoneBook(void)
 {
 	std::cout << "destructor ~PhoneBook called" << std::endl;
 	return ;

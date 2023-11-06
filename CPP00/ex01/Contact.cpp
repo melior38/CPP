@@ -1,6 +1,6 @@
 
 #include <iostream>
-#include "main.hpp"
+#include "include/main.hpp"
 
 Contact::Contact(void)
 {
