@@ -13,7 +13,7 @@
 #include <iostream>
 #include "include/main.hpp"
 
-PhoneBook::PhoneBook(void)
+PhoneBook::~PhoneBook(void)
 {
 
 }
