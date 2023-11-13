@@ -29,6 +29,8 @@ public:
 	std::string	get_n_name(void) const;
 	std::string	get_number(void) const;
 	std::string	get_secret(void) const;
+	void		change_id(int id);
+	void		clean_users(void);
 	void		update_user(std::string f_name ,std::string l_name, std::string n_name, std::string p_num, std::string d_sec, int id);
 
 	int			get_id(void) const;

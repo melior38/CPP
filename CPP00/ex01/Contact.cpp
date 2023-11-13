@@ -19,6 +19,21 @@ Contact::Contact(std::string f_name ,std::string l_name, std::string n_name, std
 
 }
 
+void	Contact::change_id(int id)
+{
+	this->_id = id;
+}
+
+void	Contact::clean_users(void)
+{
+	this->_first_name = "";
+	this->_last_name = "";
+	this->_nickname = "";
+	this->_phone_number = "";
+	this->_darkest_secret = "";
+	this->_id = -1;
+}
+
 Contact&	Contact::operator=(const Contact& other)
 {
 	this->_first_name = other._first_name;

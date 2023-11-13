@@ -13,7 +13,7 @@
 #include <iostream>
 #include "include/main.hpp"
 
-PhoneBook::~PhoneBook(void)
+PhoneBook::PhoneBook(void)
 {
 
 }
@@ -33,7 +33,6 @@ PhoneBook::PhoneBook(PhoneBook &other)
 		this->_users[i] = other._users[i];	
 	return ;
 }
-
 
 PhoneBook::~PhoneBook(void)
 {
@@ -57,6 +56,18 @@ std::string	safe_getline(void)
 	return tmp;
 }
 
+int	is_alnum(std::string line)
+{
+	std::basic_string<char>::size_type i = 0;
+	if (line == "")
+		return 1;
+	while (line[i] <= '9' && line[i] >= '0')
+		i++;
+	if (i == line.length())
+		return 0;
+	return 1;
+}
+
 void	PhoneBook::add_users(void)
 {
 	std::string first_name;
@@ -71,8 +82,8 @@ void	PhoneBook::add_users(void)
 		id = PhoneBook::_id_gen;
 		PhoneBook::_id_gen++;
 	}
-	// else
-		// fonction qui replace les id
+	else
+		PhoneBook::replace_id(this->_users);
 while(first_name == "")
 	{
 		std::cout << "Enter first name :";
@@ -92,6 +103,8 @@ while(first_name == "")
 	{
 		std::cout << "Enter phone_number :";
 		phone_number = safe_getline();
+		if (is_alnum(phone_number))
+			phone_number = "";
 	}
 	while(darkest_secret == "")
 	{
@@ -135,6 +148,17 @@ void	PhoneBook::norm(std::string str) const
 	}
 }
 
+void	PhoneBook::replace_id(Contact *users)
+{
+	int i = 0;
+
+	while (i < 7)
+	{
+		users[i] = users[i + 1];
+		i++;
+	}
+	users[7].clean_users();
+}
 
 void	PhoneBook::show_users(void) const
 {	
@@ -153,15 +177,6 @@ void	PhoneBook::show_users(void) const
 		}
 }
 
-int	is_alnum(std::string line)
-{
-	std::basic_string<char>::size_type i = 0;
-	while (line[i] <= '9' && line[i] >= '0')
-		i++;
-	if (i == line.length())
-		return 0;
-	return 1;
-}
 
 void	PhoneBook::aff_user(Contact user)
 {
@@ -176,18 +191,18 @@ void	PhoneBook::aff_user(Contact user)
 void	PhoneBook::search_users(PhoneBook repertory) const
 {
 	std::string	line;
-	std::cout << "enter id : ";
-	line = safe_getline();
-	while (true)
+	line = "";
+	while (line == "")
 	{
+		std::cout << "enter id : ";
+		line = safe_getline();
 		if (is_alnum(line))
-			line = safe_getline();
+			line = "";
 		else
 		{
 			std::cout << std::endl;
 			break ;
 		}
-		std::cout << std::endl;
 	}
 	while (true)
 	{

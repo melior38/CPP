@@ -6,11 +6,7 @@
 /*   By: asouchet <asouchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 20:13:17 by marvin            #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/11/09 12:20:31 by asouchet         ###   ########.fr       */
-=======
-/*   Updated: 2023/11/06 21:25:03 by marvin           ###   ########.fr       */
->>>>>>> refs/remotes/origin/main
+/*   Updated: 2023/11/13 17:38:41 by asouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +27,7 @@ public:
 	void		show_users(void) const;
 	void		norm(std::string str) const;
 	void		aff_user(Contact user);
+	void		replace_id(Contact *users);
 	~PhoneBook(void);
 private:
 	Contact		_users[8];
