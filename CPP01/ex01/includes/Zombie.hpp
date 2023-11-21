@@ -6,7 +6,7 @@
 /*   By: asouchet <asouchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:33:45 by asouchet          #+#    #+#             */
-/*   Updated: 2023/11/14 15:06:29 by asouchet         ###   ########.fr       */
+/*   Updated: 2023/11/21 15:39:56 by asouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ private:
 	std::string _name;
 	int			_id;
 public:
-	Zombie(int id, std::string name);
+	Zombie(std::string name);
 	~Zombie();
 	void	announce(void) const;
 };
