@@ -12,6 +12,8 @@
 
 #include <iostream>
 #include "include/main.hpp"
+#include <stdlib.h>
+#include <sstream>
 
 PhoneBook::PhoneBook(void)
 {
@@ -47,7 +49,7 @@ std::string	safe_getline(void)
 		if(std::cin.fail())
 		{
 			std::cout << "\nClosing the prompt !" << std::endl;
-			exit(0);
+			exit(1);
 		}
 		if(tmp.length() == 0)
 			return "";
@@ -166,7 +168,9 @@ void	PhoneBook::show_users(void) const
 	for (int i = 0; i < 8; i++)
 		if (this->_users[i].get_id() == i)
 		{
-			this->norm(std::to_string(this->_users[i].get_id()));
+			std::ostringstream oss;
+			oss << this->_users[i].get_id();
+			this->norm(oss.str());
 			std::cout << "|";
 			this->norm(this->_users[i].get_f_name());
 			std::cout << "|";
@@ -198,6 +202,8 @@ void	PhoneBook::search_users(PhoneBook repertory) const
 		line = safe_getline();
 		if (is_alnum(line))
 			line = "";
+		else if (atoi(line.c_str()) >= 8)
+			line = "";
 		else
 		{
 			std::cout << std::endl;
@@ -206,9 +212,9 @@ void	PhoneBook::search_users(PhoneBook repertory) const
 	}
 	while (true)
 	{
-		if (std::stoi(line) <= 8 && std::stoi(line) >= 0)
+		if (atoi(line.c_str()) <= 8 && atoi(line.c_str()) >= 0)
 		{
-			repertory.aff_user(repertory._users[std::stoi(line)]);
+			repertory.aff_user(repertory._users[atoi(line.c_str())]);
 			break ;
 		}
 	}
