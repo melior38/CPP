@@ -36,46 +36,44 @@ static float power(float base, int n)
     return result;
 }
 
-Fixed
-
 Fixed::Fixed(void) : _entier(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed	&Fixed::operator=(Fixed const &ref)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	// std::cout << "Copy assignment operator called" << std::endl;
 		this->_entier = ref.getRawBits();
 		return *this;
 }
 
 Fixed::Fixed(Fixed const &ref) 
 {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	*this = ref;
 }
 
 Fixed::Fixed(float const n)
 {
-	std::cout << "Float constructor called" << std::endl;
-	this->_entier = (int) (n * power(2, this->_bits));
+	// std::cout << "Float constructor called" << std::endl;
+	this->_entier = (int) roundf(n * power(2, this->_bits));
 }
 
 Fixed::Fixed(int const n)
 {
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 		this->_entier = (int) (n * power(2, this->_bits));
 }
 
 Fixed::~Fixed(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 int		Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+	// std::cout << "getRawBits member function called" << std::endl;
 		return this->_entier;
 }
 
@@ -180,3 +178,24 @@ Fixed	Fixed::operator--(int)
 	--(this->_entier);
 	return tmp;
 }
+
+Fixed		&Fixed::max(Fixed &a, Fixed &b)
+{
+	return (a >= b ? a : b);
+}
+	
+Fixed const	&Fixed::max(Fixed const &a, Fixed const &b)
+{
+	return (a.getRawBits() >= b.getRawBits() ? a : b);
+}
+
+Fixed		&Fixed::min(Fixed &a, Fixed &b)
+{
+	return (a <= b ? a : b);
+}
+
+Fixed const	&Fixed::min(Fixed const &a, Fixed const &b)
+{
+	return (a.getRawBits() <= b.getRawBits() ? a : b);
+}
+	

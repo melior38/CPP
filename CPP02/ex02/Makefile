@@ -18,7 +18,7 @@ COLOUR_END=\033[0m
 COLOUR_YELLOW=\033[0;33m
 COLOUR_CYAN=\033[0;36m
 
-NAME	= First_step
+NAME	= utile_class
 
 RM				= rm -rf
 
