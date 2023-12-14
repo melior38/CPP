@@ -17,7 +17,7 @@ COLOUR_END=\033[0m
 COLOUR_YELLOW=\033[0;33m
 COLOUR_CYAN=\033[0;36m
 
-NAME	= d_w_burn_the_world
+NAME	= Abstract_Class
 
 RM				= rm -rf
 

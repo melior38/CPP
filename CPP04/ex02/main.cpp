@@ -60,9 +60,9 @@ int main()
 			std::cout << "doglas Idea 0 is : " << doglas->getBrain()->getIdea(0) << std::endl;
 			delete doglas;
 		}
+		delete doggle;
 		std::cout << "--------------------------------------------------------------------------------------"
 				  << std::endl;
-		delete doggle;
 	}
 	return 0;
 }

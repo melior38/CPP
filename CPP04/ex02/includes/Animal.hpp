@@ -34,9 +34,9 @@ class Animal
 
 	Animal	&operator=(const Animal &ref);
 	// virtual void makeSound() = 0;
-	virtual void 		makeSound() const;
 	virtual std::string get_type() const;
-	virtual	Brain*		getBrain() const;
+	virtual void 		makeSound() const = 0;
+	virtual	Brain*		getBrain() const = 0;
 	private:
 	std::string _type;
 };

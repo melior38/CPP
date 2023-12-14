@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.hpp                                        :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/12 17:52:44 by marvin            #+#    #+#             */
-/*   Updated: 2023/12/12 17:52:44 by marvin           ###   ########.fr       */
+/*   Created: 2023/12/14 16:41:41 by marvin            #+#    #+#             */
+/*   Updated: 2023/12/14 16:41:41 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AANIMAL_HPP
-# define AANIMAL_HPP
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
-#include "Brain.hpp"
 #include <iostream>
 
 #define RESET  "\x1B[0m"
@@ -25,18 +24,14 @@
 #define CYAN  "\x1B[36m"
 #define WHITE  "\x1B[37m"
 
-class AAnimal
+class MateriaSource
 {
 	public:
-	AAnimal();
-	AAnimal(const AAnimal &ref);
-	virtual ~AAnimal();
+	MateriaSource();
+	MateriaSource(const MateriaSource &ref);
+	virtual ~MateriaSource();
 
-	AAnimal	&operator=(const AAnimal &ref);
-	// virtual void makeSound() = 0;
-	virtual void 		makeSound() = 0;
-	virtual std::string get_type() = 0;
-	virtual	Brain*		getBrain() = 0;
+	MateriaSource	&operator=(const MateriaSource &ref);
 	private:
 	std::string _type;
 };
