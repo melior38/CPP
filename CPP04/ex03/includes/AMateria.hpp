@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/14 16:41:41 by marvin            #+#    #+#             */
-/*   Updated: 2023/12/14 16:41:41 by marvin           ###   ########.fr       */
+/*   Created: 2023/12/14 17:25:02 by marvin            #+#    #+#             */
+/*   Updated: 2023/12/14 17:25:02 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MATERIASOURCE_HPP
-# define MATERIASOURCE_HPP
+#ifndef AMATERIA_H
+#define AMATERIA_H
 
 #include <iostream>
+#include "ICharacter.hpp"
 
-#define RESET  "\x1B[0m"
-#define RED  "\x1B[31m"
-#define GREEN  "\x1B[32m"
-#define YELLOW  "\x1B[33m"
-#define BLUE  "\x1B[34m"
-#define MAGENTA  "\x1B[35m"
-#define CYAN  "\x1B[36m"
-#define WHITE  "\x1B[37m"
-
-class IMateriaSource
+class AMateria
 {
 	public:
-	virtual ~IMateriaSource() {}
-	virtual void learnMateria(AMateria*) = 0;
-	virtual AMateria* createMateria(std::string const & type) = 0;
+	AMateria();
+	AMateria(std::string const &type);
+	AMateria(AMateria const &ref);
+	virtual ~AMateria();
+
+	AMateria			&operator=(AMateria const &ref);
+	std::string const 	&getType() const; //Returns the materia type
+	virtual AMateria*	clone() const = 0;
+	virtual void		use(ICharacter &target);
+	protected:
+	std::string			_type;
 };
 
 #endif
