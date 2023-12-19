@@ -13,21 +13,25 @@
 #define CPP_CHARACTER_H
 
 #include <iostream>
-#include "/includes/ICharacter.hpp"
+#include "ICharacter.hpp"
+#include "AMateria.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 
 class Character : public ICharacter
 {
 public:
 	Character();	
-	Character(ICharacter const &ref);	
+	Character(Character const &ref);	
+	Character(std::string const &name);
 	virtual ~Character();
 
 	Character					&operator=(Character const &ref);
 	virtual std::string const	&getName() const;
 	virtual void				equip(AMateria * m);
 	virtual void				unequip(int idx);
-	virtual void				use(int idx, Character& target);
+	virtual void				use(int idx, ICharacter& target);
 private:
 	std::string					_name;
 	AMateria*					_inventory[4];

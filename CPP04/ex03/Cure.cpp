@@ -10,3 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "includes/Cure.hpp"
+
+cure::cure() : AMateria("cure")
+{
+
+}
+
+cure::cure(cure const &ref) : AMateria(ref)
+{
+	this->_type = ref._type;
+	*this = ref;
+}
+
+cure::~cure()
+{
+
+}
+
+cure	&cure::operator=(cure const &ref)
+{
+	this->_type = ref._type;
+	return *this;
+}
+
+AMateria	*cure::clone() const
+{
+	AMateria* ret = new cure();
+	return ret;
+}
+
+void	cure::use(ICharacter &target)
+{
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+}

@@ -14,16 +14,20 @@
 #ifndef CURE_HPP
 #define CURE_HPP
 
-class cure
+#include "ICharacter.hpp"
+#include "AMateria.hpp"
+
+class cure : public AMateria
 {
-	public:
+public:
 	cure();
 	cure(const cure &ref);
 	virtual ~cure();
 
-	virtual	cure*	clone() const;
 	cure	&operator=(const cure &ref);
-	private:
+	virtual	AMateria*	clone() const;
+	virtual void use(ICharacter& target);
+private:
 };
 
 #endif

@@ -10,20 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "/includes/Ice.hpp"
+#include "includes/Ice.hpp"
 
-ice::ice() : _type("ice")
-{
-
-}
-
-ice::ice(std::string const &type) : _type(type)
+ice::ice() : AMateria("ice")
 {
 
 }
 
 ice::ice(ice const &ref) : AMateria(ref)
 {
+	this->_type = ref._type;
 	*this = ref;
 }
 
@@ -38,18 +34,13 @@ ice	&ice::operator=(ice const &ref)
 	return *this;
 }
 
-std::string	ice::getType() const
-{
-	return this->_type;
-}
-
-AMatera	*ice::clone() const
+AMateria	*ice::clone() const
 {
 	AMateria* ret = new ice();
 	return ret;
 }
 
-void	ice::use(ICharacter &target);
+void	ice::use(ICharacter &target)
 {
 	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }
