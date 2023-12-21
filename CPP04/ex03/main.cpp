@@ -195,9 +195,9 @@ int	main(int ac, char **av)
 	def.use(0, *it);
 
 	Character dup(def);
-	std::cout << "testing pass" << std::endl;
 
 	std::cout << dup.getName() << std::endl;
+	// std::cout << "testing pass" << std::endl;
 	dup.use(0, *it);
 	dup.use(1, *it);
 

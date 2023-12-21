@@ -36,8 +36,7 @@ cure	&cure::operator=(cure const &ref)
 
 AMateria	*cure::clone() const
 {
-	AMateria* ret = new cure();
-	return ret;
+	return new cure();
 }
 
 void	cure::use(ICharacter &target)

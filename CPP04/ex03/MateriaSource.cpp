@@ -6,7 +6,7 @@
 /*   By: asouchet <asouchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 15:21:47 by asouchet          #+#    #+#             */
-/*   Updated: 2023/12/21 15:26:13 by asouchet         ###   ########.fr       */
+/*   Updated: 2023/12/21 17:59:26 by asouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,8 @@ void	MateriaSource::learnMateria(AMateria *m)
 	{
 		if (!this->_src[i])
 		{
-			AMateria	*tmp = 0;
-			if (m->getType() == "cure")
-				tmp = new cure();
-			else if (m->getType() == "ice")
-				tmp = new ice();
-			this->_src[i] = tmp;
-			break ;
+			this->_src[i] = m;
+			return ;
 		}
 	}
 	delete m;
@@ -91,19 +86,7 @@ void	MateriaSource::learnMateria(AMateria *m)
 AMateria*	MateriaSource::createMateria(std::string const &type)
 {
 	for (int i = 0; i < 4; i++)
-	{
-		if (this->_src[i])
-		{
-			if (this->_src[i]->getType() == type)
-			{
-				AMateria	*ret = 0;
-				if (type == "ice")
-					ret = new ice();
-				if (type == "cure")
-					ret = new cure();
-				return ret;
-			}
-		}
-	}
+		if (this->_src[i] && this->_src[i]->getType() == type)
+				return this->_src[i]->clone();
 	return 0;
 }

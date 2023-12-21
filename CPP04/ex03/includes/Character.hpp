@@ -35,4 +35,7 @@ private:
 	std::string					_name;
 	AMateria*					_inventory[4];
 };
+
+std::ostream& operator<<(std::ostream& os, const ICharacter& character);
+
 #endif

@@ -24,25 +24,14 @@ Character::Character(std::string const &name) : ICharacter(), _name(name)
 		this->_inventory[i] = NULL;
 }
 
-Character::Character(Character const &ref)
+Character::Character(Character const &ref) : _name(ref._name)
 {
-	this->_name = ref._name;
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->_inventory[i])
+		if (ref._inventory[i])
 			this->_inventory[i] = ref._inventory[i]->clone();
-		// {
-		// 	delete this->_inventory[i];
-		// 	this->_inventory[i] = NULL;
-		// }
-		// if (ref._inventory[i])
-		// {
-		// 	if (ref._inventory[i]->getType() == "ice")
-		// 		this->_inventory[i] = new ice();
-		// 	else if (ref._inventory[i]->getType() == "cure")
-		// 		this->_inventory[i] = new cure();
-		// }
-
+		else
+			this->_inventory[i] = NULL;
 	}
 }
 
@@ -69,12 +58,7 @@ Character	&Character::operator=(Character const &ref)
 			this->_inventory[i] = NULL;
 		}
 		if (ref._inventory[i])
-		{
-			if (ref._inventory[i]->getType() == "ice")
-				this->_inventory[i] = new ice();
-			else if (ref._inventory[i]->getType() == "cure")
-				this->_inventory[i] = new cure();
-		}
+			this->_inventory[i] = ref._inventory[i]->clone();
 	}
 	return *this;
 }
@@ -86,33 +70,32 @@ const std::string	&Character::getName() const
 
 void	Character::equip(AMateria *m)
 {
-	int i = 0;
-	while (i < 4 && this->_inventory[i] != NULL)
-		i++;
-	if (i == 4)
-		return ;
 	if (!m)
 		return ;
-	AMateria *tmp = 0;
-	if(m->getType() == "ice")
+	for(int i = 0; i < 4; i++)
 	{
-		tmp = new ice();
+		if (!this->_inventory[i])
+		{
+			this->_inventory[i] = m->clone();
+			break ;
+		}
 	}
-	else if (m->getType() == "cure")
-	{
-		tmp = new cure();
-	}
-	this->_inventory[i] = tmp;
 }
 
 void	Character::unequip(int idx)
 {
-	if(idx >= 0 && idx < 4 && this->_inventory[idx])
+	if(idx >= 0 && idx < 4)
 		this->_inventory[idx] = NULL;
 }
 
 void	Character::use(int idx, ICharacter& target)
 {
 	if(idx >= 0 && idx < 4 && this->_inventory[idx])
-		(this->_inventory[idx])->use(target);
+		this->_inventory[idx]->use(target);
 }
+
+// std::ostream& operator<<(std::ostream& os, const ICharacter& character)
+// {
+// 	os << character.getName();
+// 	return os;
+// }

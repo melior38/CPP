@@ -36,8 +36,7 @@ ice	&ice::operator=(ice const &ref)
 
 AMateria	*ice::clone() const
 {
-	AMateria* ret = new ice();
-	return ret;
+	return new ice();
 }
 
 void	ice::use(ICharacter &target)

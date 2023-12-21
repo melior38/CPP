@@ -31,7 +31,7 @@ SRC				=	main.cpp							\
 DIRS			= objs
 HEADERS			= include
 OBJS			= ${SRC:.cpp=.o}
-CFLAGS 			= -I $(HEADERS) -Werror -Wextra -Wall -std=c++98 -fsanitize=address
+CFLAGS 			= -I $(HEADERS) -Werror -Wextra -Wall -std=c++98 -fsanitize=undefined
 _OBJS			= $(addprefix $(DIRS)/, $(OBJS))
 
 
@@ -39,10 +39,10 @@ all: ${NAME}
 
 ${NAME}: ${_OBJS}
 			@echo "$(COLOUR_CYAN)Compile..."
-			g++ ${CFLAGS} $(_OBJS) -o $@
+			c++ ${CFLAGS} $(_OBJS) -o $@
 ${DIRS}/%.o: %.cpp
 		@mkdir -p $(DIRS)
-		g++ $(CFLAGS) -c $< -o $@ -g3
+		c++ $(CFLAGS) -c $< -o $@ -g3
 clean:
 			$(RM) ${_OBJS}
 			$(RM) objs
