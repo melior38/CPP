@@ -31,7 +31,7 @@ SRC				=	main.cpp							\
 DIRS			= objs
 HEADERS			= include
 OBJS			= ${SRC:.cpp=.o}
-CFLAGS 			= -I $(HEADERS) -Werror -Wextra -Wall -std=c++98
+CFLAGS 			= -I $(HEADERS) -Werror -Wextra -Wall -std=c++98 -fsanitize=address
 _OBJS			= $(addprefix $(DIRS)/, $(OBJS))
 
 

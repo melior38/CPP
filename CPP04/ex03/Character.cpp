@@ -18,7 +18,7 @@ Character::Character() : ICharacter(), _name("")
 		this->_inventory[i] = NULL;
 }
 
-Character::Character(std::string const &name) : ICharacter(),_name(name)
+Character::Character(std::string const &name) : ICharacter(), _name(name)
 {
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
@@ -30,17 +30,19 @@ Character::Character(Character const &ref)
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->_inventory[i])
-		{
-			delete this->_inventory[i];
-			this->_inventory[i] = NULL;
-		}
-		if (ref._inventory[i])
-		{
-			if (ref._inventory[i]->getType() == "ice")
-				this->_inventory[i] = new ice();
-			else if (ref._inventory[i]->getType() == "cure")
-				this->_inventory[i] = new cure();
-		}
+			this->_inventory[i] = ref._inventory[i]->clone();
+		// {
+		// 	delete this->_inventory[i];
+		// 	this->_inventory[i] = NULL;
+		// }
+		// if (ref._inventory[i])
+		// {
+		// 	if (ref._inventory[i]->getType() == "ice")
+		// 		this->_inventory[i] = new ice();
+		// 	else if (ref._inventory[i]->getType() == "cure")
+		// 		this->_inventory[i] = new cure();
+		// }
+
 	}
 }
 
