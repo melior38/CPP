@@ -6,7 +6,7 @@
 /*   By: asouchet <asouchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 15:10:58 by asouchet          #+#    #+#             */
-/*   Updated: 2023/12/19 15:27:04 by asouchet         ###   ########.fr       */
+/*   Updated: 2023/12/21 15:25:23 by asouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 #include <iostream>
 #include "IMateriaSource.hpp"
-#include "Ice.hpp"
-#include "Cure.hpp"
+// #include "Ice.hpp"
+// #include "Cure.hpp"
 
-class MateriaSource : IMateriaSource
+class MateriaSource : public IMateriaSource
 {
 	public:
 	MateriaSource();

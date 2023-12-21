@@ -77,7 +77,7 @@ Character	&Character::operator=(Character const &ref)
 	return *this;
 }
 
-std::string	&Character::getName() const
+const std::string	&Character::getName() const
 {
 	return this->_name;
 }

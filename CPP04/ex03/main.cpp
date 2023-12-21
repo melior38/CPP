@@ -19,8 +19,8 @@ int main()
 {
 	{
 		IMateriaSource *src = new MateriaSource();
-		src->learnMateria(new Ice());
-		src->learnMateria(new Cure());
+		src->learnMateria(new ice());
+		src->learnMateria(new cure());
 
 		ICharacter *me = new Character("me");
 
@@ -43,11 +43,11 @@ int main()
 	}
 	{
 		IMateriaSource *src = new MateriaSource();
-		src->learnMateria(new Ice());
-		src->learnMateria(new Cure());
-		src->learnMateria(new Ice());
-		src->learnMateria(new Cure());
-		src->learnMateria(new Ice());// does nothing
+		src->learnMateria(new ice());
+		src->learnMateria(new cure());
+		src->learnMateria(new ice());
+		src->learnMateria(new cure());
+		src->learnMateria(new ice());// does nothing
 
 		AMateria* ice = src->createMateria("ice");
 		AMateria* cure = src->createMateria("qnoquhqwiebqw");

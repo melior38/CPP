@@ -14,6 +14,8 @@
 # define IMATERIASOURCE_HPP
 
 #include <iostream>
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 #define RESET  "\x1B[0m"
 #define RED  "\x1B[31m"
