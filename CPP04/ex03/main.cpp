@@ -177,7 +177,7 @@ int	main(int ac, char **av)
 
 	// delete i;
 	delete c;
-	// delete clone;
+	//delete clone;
 
 	std::cout << "testing char duplication" << std::endl;
 

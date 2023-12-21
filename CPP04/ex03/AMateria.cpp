@@ -40,7 +40,6 @@ AMateria	&AMateria::operator=(AMateria const &ref)
 
 void	AMateria::use(ICharacter &target)
 {
-	// std::cout << "euh sa rentre dans use" << std::endl;
 	std::cout << "This is a non-castable materia and " << target.getName() << " will not receive any effect !" << std::endl;
 }
 

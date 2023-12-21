@@ -25,7 +25,7 @@ ice::ice(ice const &ref) : AMateria(ref)
 
 ice::~ice()
 {
-
+	
 }
 
 ice	&ice::operator=(ice const &ref)
