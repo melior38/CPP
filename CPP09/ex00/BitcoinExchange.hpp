@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asouchet <asouchet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:40:26 by asouchet          #+#    #+#             */
-/*   Updated: 2024/01/22 14:39:23 by asouchet         ###   ########.fr       */
+/*   Updated: 2024/01/23 10:57:21 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <map>
 #include <exception>
+#include <fstream>
 
 class WrongFormatException : public std::exception
 {
@@ -34,6 +35,13 @@ class TooLargeNumberException : public std::exception
 	public:
 		const char *what() const throw();
 };
+
+class FailedOpenException : public std::exception
+{
+	public:
+		const char *what() const throw();
+};
+
 
 std::map<std::string, float>	csvToMap(std::string fileName);
 void							format(std::string fileName);
