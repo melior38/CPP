@@ -14,12 +14,12 @@
 
 int main (int ac, char **av)
 {
-	if (ac != 2)
+	if (ac == 2)
 	{
 		try
 		{
 				std::string str(av[1]);
-				RPN(str);
+				RPN oper(str);
 		}
 		catch(const std::exception& e)
 		{

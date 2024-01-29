@@ -24,6 +24,7 @@ NAME	= RPN
 RM				= rm -rf
 
 SRC				=	main.cpp							\
+					RPN.cpp
 
 
 DIRS			= objs

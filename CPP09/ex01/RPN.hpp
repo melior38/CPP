@@ -50,4 +50,6 @@ private:
 	std::stack<int> _stack;
 };
 
+int	is_oper(char a);
+
 #endif
