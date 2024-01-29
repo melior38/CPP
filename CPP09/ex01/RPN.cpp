@@ -56,16 +56,18 @@ RPN::RPN(std::string &oper)
 	{
 		if (oper[i] >= '0' && oper[i] <= '9')
 			this->_stack.push(oper[i] - '0');
-		if (oper[i] == '+')
+		else if (oper[i] == '+' && this->_stack.size() >= 2)
 			this->add_stack();
-		else if (oper[i] == '-')
+		else if (oper[i] == '-' && this->_stack.size() >= 2)
 			this->sub_stack();
-		else if (oper[i] == '/')
+		else if (oper[i] == '/' && this->_stack.size() >= 2)
 			this->div_stack();
-		else if (oper[i] == '*')
+		else if (oper[i] == '*' && this->_stack.size() >= 2)
 			this->mult_stack();
-		else
+		else if (oper[i] == ' ')
 			continue ;
+		else
+			throw WrongFormatException();
 	}
 	std::cout << this->_stack.top() << std::endl;
 }
@@ -97,9 +99,9 @@ void	RPN::div_stack()
 	this->_stack.pop();
 	int a = this->_stack.top();
 	this->_stack.pop();
+	std::cout << a << " / " << b << std::endl;
 	if (a == 0)
 		throw DivisionByZeroException();
-	std::cout << a << " / " << b << std::endl;
 	this->_stack.push(a / b);
 }
 
@@ -126,6 +128,11 @@ const char *RPN::DivisionByZeroException::what() const throw()
 const char *RPN::InsufficientContentException::what() const throw()
 {
 	return ("Error: this operation can't be done because of wrong amount of operator or value");
+}
+
+const char *RPN::WrongFormatException::what() const throw()
+{
+	return ("Error: this isn't a RPN format");
 }
 
 int	is_oper(char a)
