@@ -26,6 +26,8 @@ int main (int ac, char **av)
 			std::cout << e.what() << std::endl;
 		}
 	}
+	else 
+		std::cout << "Error: wrong format !" << std::endl;
 	return 0;
 	
 }
