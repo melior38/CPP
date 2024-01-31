@@ -15,6 +15,7 @@ int main(int ac, char **av)
             std::cout << "Before: ";
             for (int i = 1; i < ac; i++)
                 std::cout << av[i] << " ";
+            std::cout << std::endl;
             std::clock_t start = std::clock();
             std::list<int> sorted_list = PmergeMe::ford_jhonson<std::list>(av);
             std::clock_t end = std::clock();
