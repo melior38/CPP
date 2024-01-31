@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: asouchet <asouchet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/10 13:24:39 by marvin            #+#    #+#              #
-#    Updated: 2024/01/10 13:24:39 by marvin           ###   ########.fr        #
+#    Updated: 2024/01/31 11:23:58 by asouchet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,12 @@ COLOUR_END=\033[0m
 COLOUR_YELLOW=\033[0;33m
 COLOUR_CYAN=\033[0;36m
 
-NAME	= RPN
+NAME	= PmergeMe
 
 RM				= rm -rf
 
 SRC				=	main.cpp							\
-					RPN.cpp
+					PmergeMe.cpp
 
 
 DIRS			= objs
